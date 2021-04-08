@@ -1,2 +1,2 @@
-# stepin_miniprojrect
+# stepin_miniproject
 Miniproject on C language
