@@ -6,7 +6,7 @@ BUILD = build
 # All source code files
 SRC = main.c\
 src/bill.c\
-src/motorc\
+src/motor.c\
 src/transformer.c
 
 # All test source files
