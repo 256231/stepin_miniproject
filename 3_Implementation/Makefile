@@ -11,7 +11,7 @@ src/transformer.c
 
 # All test source files
 TEST_SRC = src/motor.c\
-src/tranformer.c
+src/tranformer.c\
 test/test.c\
 unity/unity.c\
 
