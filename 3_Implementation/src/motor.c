@@ -219,3 +219,15 @@ return price;
 
 
 }
+
+int motor_tests(int input1,int input2)
+{
+    if(input1>4||input2>7)
+    {
+    return ERROR;
+    }
+    else 
+    {
+    return SUCCESS;
+    }
+}

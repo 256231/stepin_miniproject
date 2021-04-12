@@ -133,3 +133,10 @@ float efficiency(float kva,float x,float lpf)
 {
     return ((x*kva*lpf)/((x*kva*lpf)+pg0+pow(x,2)*pg1));
 }
+int transformer_tests(int vol1, int cur1, int pow1, int vol2, int cur2)
+{
+    if(((pow1)/vol1*cur1)>=1||vol2>=vol1||cur2<=cur1)
+    return ERROR;
+    else
+    return SUCCESS;
+}
