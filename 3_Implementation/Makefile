@@ -1,135 +1,73 @@
-#PROJECT_NAME = Electrical
-#SRC = main.c\
-#src\bill.c\
-#src\motor.c\
-#src\transformer.c
-#INC = inc 
+PROJECT_NAME = Electrical
 
-#$(PROJECT_NAME) : $(SRC)
-#	gcc -I $(INC) $(SRC) -o $(PROJECT_NAME).exe
+# Output directory
+BUILD = build
 
-#run: $(PROJECT_NAME)
-#	$(PROJECT_NAME).exe
-
-#clean:
-#	del /q *.exe
-
-#PROJ_NAME = Electrical
-#TEST_PROJ_NAME = Test_$(PROJ_NAME)
-
-
-
-#SRC =main.c\
-#src\bill.c\
-#src\motor.c\
-#src\transformer.c
-
-
-#TEST_SRC = test/test.c \
-#unity/unity.c 
-
-#INC_T = unity
-
-#INC_TEST =test
-
-#INC= inc
-
-
-#ifdef OS
-#   EXEC = exe
-#else#   ifeq ($(shell uname), Linux)
-#	  EXEC = out
-#   endif
-#endif
-
-#all:
-#	gcc -I $(INC) -I $(INC_T) $(SRC)  -o $(PROJ_NAME).$(EXEC)
-
-
-
-	
-#run:
-#	$(PROJ_NAME).$(EXEC)
-
-#run:
-#	$(call FixPath,$(PROJ_NAME).$(EXEC))
-
-
-#test:
-#	gcc -I $(INC) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(TEST_PROJ_NAME).$(EXEC)
-
-
-
-#cppcheck:
-#	cppcheck --enable=all $(SRC)
-
-
-
-#debug:
-#	gcc -I $(INC) $(SRC) main.c -g -o $(PROJ_NAME).$(EXEC)
-#	gdb $(PROJ_NAME).$(EXEC)
-
-#valgrind:
-#	valgrind ./$(PROJ_NAME).$(EXEC)
-
-
-#clean:
-#	del *.DAT
-#	del *.$(EXEC)
-
-PROJ_NAME = Electrical
-TEST_PROJ_NAME = Test_$(PROJ_NAME)
-
-BUILD_DIR = Build
-
-SRC = src/bill.c\
+# All source code files
+SRC = main.c\
+src/bill.c\
 src/motor.c\
 src/transformer.c
 
-TEST_SRC = test/test.c\
-unity/unity.c
+# All test source files
+TEST_SRC = src/motor.c\
+src/transformer.c\
+test/test.c\
+unity/unity.c\
 
-INC = -Iinc\
--Iunity
 
-#To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
 ifdef OS
-   RM = del /q
-   FixPath = $(subst /,\,$1)
    EXEC = exe
 else
    ifeq ($(shell uname), Linux)
-      RM = rm -rf
-      FixPath = $1
 	  EXEC = out
    endif
 endif
 
-# Makefile will not run target command if the name with file already exists. To override, use .PHONY
-.PHONY : all test coverage run clean doc
+TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).$(EXEC)
 
-all:$(BUILD_DIR)
-	gcc main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC)) -lm
+# All include folders with header files
+INC	= -Iinc\
+-Iunity\
 
-run: all
-	$(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC)) -lm
+#Library Inlcudes
+#INCLUDE_LIBS = 
+INCLUDE_LIBS = -lcunit
 
+# Project Output name
+PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).$(EXEC)
 
-test: $(SRC) $(TEST_SRC)
-	gcc $^ $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC)) -lm
-	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
+# Document files
+DOCUMENTATION_OUTPUT = documentation/html
 
-coverage:${PROJECT_NAME}
-	gcc -fprofile-arcs -ftest-coverage $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
-	gcov -a $(SRC)
+# Default target built
+$(PROJECT_NAME):all
 
+# Run the target even if the matching name exists
+.PHONY: run clean test doc all
+
+all: $(SRC) $(BUILD)
+	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT) -lm
+
+# Call `make run` to run the application
+run:$(PROJECT_NAME)
+	./$(PROJECT_OUTPUT)
+
+# Document the code using Doxygen
 doc:
-	make -C doc
-$(BUILD_DIR):
-	mkdir $(BUILD_DIR)
+	make -C ./documentation
 
+# Build and run the unit tests
+test:$(BUILD)
+	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT)  -lm
+	./$(TEST_OUTPUT)
+
+# Remove all the built files, invoke by `make clean`
 clean:
-	$(RM) $(call FixPath,$(BUILD_DIR)/*)
-	make clean -C doc
-	rmdir $(BUILD_DIR) doc/html
+	del *.DAT
+	del *.$(EXEC)
+	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT)
+
+# Create new build folder if not present
+$(BUILD):
+	mkdir build
