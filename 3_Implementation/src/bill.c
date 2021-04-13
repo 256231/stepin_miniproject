@@ -1,49 +1,63 @@
+/**
+ * @file bill.c
+ * @author Himanshu
+ * @brief 
+ * @version 0.1
+ * @date 2021-04-13
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include<stdio.h>
 #include<math.h>
 #include"electrical.h"
 
 float total=0;
+
+/**
+ * @brief This function is to calculate monthly bill of house
+ * 
+ */
 void perform_bill()
 { 
      float cost,price;
    int num;
-    printf("Monthlyu Home electricity billing\n");
-    printf("Select the appliances from list if not there press 0\n");
-    printf("How many television you have \t");
+    printf("########  Monthly Home electricity billing ###########\n");
+    printf("  Enter the appliances quantity and  if not there press 0\n");
+    printf("  How many television you have \t");
 
     scanf("%d",&num);
     if(num!=0)
         television(num);
 
-
-
-  printf("How many ceiling Fan you have \t");
+  printf("  How many ceiling Fan you have \t");
 
     scanf("%d",&num);
     if(num!=0)
         fan(num);
 
-    printf("How many fridge are there\t");
+    printf("  How many fridge are there\t");
     scanf("%d",&num);
     if(num!=0)
         fridge(num);
 
-         printf("How many AC's are there\t");
+         printf("  How many AC's are there\t");
     scanf("%d",&num);
     if(num!=0)
         ac(num);
 
-         printf("How many tubelights are there\t");
+         printf("  How many tubelights are there\t");
     scanf("%d",&num);
     if(num!=0)
         tubelight(num);
-        printf("How many Washing machine are there\t");
+        printf("  How many Washing machine are there\t");
     scanf("%d",&num);
     if(num!=0)
         washingmachine(num);
 
         char respon;
-        printf("DO u have anyother apliances at home if yes press y else n\t");
+        printf("  DO u have anyother appliances at home if yes press y else n\t");
         scanf("%s",&respon);
         if(respon=='y')
         {
@@ -52,14 +66,20 @@ void perform_bill()
             scanf("%d",&othap);
             otherappliances(&othap);
         }
-        printf("\n Enter the price of 1 unit in your state\t");
+        printf("\n   Enter the price of 1 unit in your state\t");
         scanf("%f",&price);
         cost=(total/1000)*price*30;
 
 
- printf("Approximate montly bill is %f",cost);
+ printf(" Approximate montly bill is %0.2f",cost);
 
 }
+
+/**
+ * @brief Calculates the unit consumed by Tv
+ * 
+ * @param tv1 
+ */
 
 void television(int tv1)
 {
@@ -72,7 +92,7 @@ tv[4].watt=80;
 tv[5].watt=100;
 tv[9].watt=0;
 
- printf("Select the Tv in your home .press the no to select and if not present in the list press' 9 ' and add the details\n");
+ printf("Select the Tv in your home and press the no to select and if not present in the list press' 9 ' and add the details\n");
 
     printf(" 1-24 inch LED tv\n 2-32 inch LED tv\n 3-37 inch LED tv\n 4-42 inch LED tv\n 5-50 inch LED tv\n ");
     int opt,i;
@@ -96,6 +116,12 @@ for(i=1;i<=tv1;i++)
 }
 
 }
+
+/**
+ * @brief Calculates the unit consumed by Fan
+ * 
+ * @param fan1 
+ */
 void fan(int fan1)
 {   struct appliances fan[5];
     fan[0].watt=0;
@@ -125,9 +151,13 @@ void fan(int fan1)
 
 }
 
-
-
 }
+
+/**
+ * @brief Gets the wattage and average hours in day fridge is on and  Calculates the unit consumed by Fridge
+ * 
+ * @param fri 
+ */
 void fridge(int fri)
 {
     struct appliances fridge1[9];
@@ -143,6 +173,12 @@ void fridge(int fri)
     }
 
 }
+
+/**
+ * @brief Gets the wattage and average hours in day AC is on and  Calculates the unit consumed by AC
+ * 
+ * @param ac1 
+ */
 void ac(int ac1)
 {
 
@@ -159,6 +195,12 @@ void ac(int ac1)
     }
 
 }
+
+/**
+ * @brief Gets the quantity , wattage and average hours in day tubelight is on and  Calculates the unit consumed by it.
+ * 
+ * @param tl 
+ */
 void tubelight(int tl)
 {
     struct appliances tube[9];
@@ -193,6 +235,12 @@ void tubelight(int tl)
     down:
         printf("\n");
 }
+
+/**
+ * @brief Gets the wattage and average hours in day washingmachine is on and  Calculates the unit consumed by it.
+ * 
+ * @param wash 
+ */
 void washingmachine(int wash)
 {
     struct appliances wash1[9];
@@ -209,6 +257,11 @@ void washingmachine(int wash)
 
 }
 
+/**
+ * @brief This function is to add anyother appliances there at home and get its wattage and average hours it's on.
+ * 
+ * @param num1 
+ */
 void otherappliances(int *num1)
 {
     struct appliances others[*num1];
