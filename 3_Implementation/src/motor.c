@@ -12,6 +12,8 @@
 #include<stdio.h>
 #include<math.h>
 #include"electrical.h"
+#include"unity.h"
+#include"unity_internals.h"
 
 /**
  * @brief To find the cost effectiveness of energy efficient motor
