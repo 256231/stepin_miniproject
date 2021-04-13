@@ -165,7 +165,7 @@ void fridge(int fri)
     for(i=0;i<fri;i++)
     {
 
-        printf("Enter the wattage of Fridge-%d\t",i+1);
+        printf("Enter the wattage of Fridge %d\t",i+1);
         scanf("%f",&fridge1[i].watt);
         printf("Enter the average hours fridge %d is On\t",i+1);
         scanf("%f",&fridge1[i].hours);
@@ -187,7 +187,7 @@ void ac(int ac1)
     for(i=0;i<ac1;i++)
     {
 
-        printf("Enter the wattage of Air Conditioner-%d\t",i+1);
+        printf("Enter the wattage of Air Conditioner %d\t",i+1);
         scanf("%f",&AC[i].watt);
         printf("Enter the average hours AC %d is On\t",i+1);
         scanf("%f",&AC[i].hours);
@@ -248,7 +248,7 @@ void washingmachine(int wash)
     for(i=0;i<wash;i++)
     {
 
-        printf("Enter the wattage of Washing Machine -%d\t",i+1);
+        printf("Enter the wattage of Washing Machine  %d\t",i+1);
         scanf("%f",&wash1[i].watt);
         printf("Enter the average hours Washing machine %d is On\t",i+1);
         scanf("%f",&wash1[i].hours);

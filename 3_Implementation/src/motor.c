@@ -26,7 +26,7 @@ void perform_motor()
 
     printf("######## ASSESSING COST EFFECTIVENESS OF ENERGY EFFICIENT MOTOR ##############\n");
     printf("What type of motor currntly in use and need to replace\n");
-    printf("1.IE1\n 2.IE2 3.IE3 4.IE4\n Enter the option\t");
+    printf("  1.IE1   2.IE2   3.IE3   4.IE4\n  Enter the option\t");
     scanf("%d",&option);
     
     if(option==4)
@@ -39,11 +39,11 @@ void perform_motor()
 
 
     printf(" Select the Kw rating of motor in use and press the no. accordingly\n");
-    printf(" 1-3.7Kw \n 2- 7Kw\n 3 -11Kw\n 4- 15Kw\n 5- 30Kw \n 6- 45Kw\n 7-55Kw\n");
+    printf(" 1-3.7Kw \n 2- 7Kw\n 3 -11Kw\n 4- 15Kw\n 5- 30Kw \n 6- 45Kw\n 7-55Kw\n Enter the option\t ");
     scanf("%d",&option1);
      
       motorselection(option,option1);
-
+     printf("\n");
       printf("\n On the basis of Finance availability Customer will decide from above option\n");
      
 
@@ -66,8 +66,9 @@ void motorselection(int num1,int num2)
 
     printf("Enter the working hours per day and working days in a year of this motor respectively\t ");
     scanf("%f %f",&workhrs,&workdays);
-    printf("Enter the tarrif(power rate per kwh\t");
+    printf("Enter the tarrif(power rate per kwh)\t");
     scanf("%f",&tarrif);
+    printf("\n");
 
 
     switch(num1+1)
@@ -77,34 +78,37 @@ void motorselection(int num1,int num2)
         printf("If you select IE2 motor\n");
         x=((kilowat(num2)/motortable(num1,num2))-(kilowat(num2)/motortable(2,num2)));
 
-        printf("Price of Motor=%0.1f\n",pricelist(2,num2));
+        printf("Price of Motor=  %0.1f\n",pricelist(2,num2));
 
         saving=x*workhrs*workdays*tarrif;
         printf("Saving per year is %0.2f\t",saving);
         extrainvt=pricelist(2,num2)-pricelist(num1,num2);
-        printf("Extra investment= %0.2f\t",extrainvt);
+        printf("Extra investment=  %0.2f\t",extrainvt);
         payback=(12*extrainvt)/saving;
         printf("Payback period is %0.1f months\t",payback);
+        printf("\n");
     case 3:
         printf("\nIf you select IE3 motor\n");
         x=((kilowat(num2)/motortable(num1,num2))-(kilowat(num2)/motortable(3,num2)));
-        printf("Price of Motor=%0.1f\n",pricelist(3,num2));
+        printf("Price of Motor=  %0.1f\n",pricelist(3,num2));
         saving=x*workhrs*workdays*tarrif;
         printf("Saving per year is %0.2f\t",saving);
         extrainvt=pricelist(3,num2)-pricelist(num1,num2);
         printf("Extra investment= %0.2f\t",extrainvt);
         payback=(12*extrainvt)/saving;
         printf("Payback period is %0.1f months\t",payback);
+        printf("\n");
     case 4:
         printf("\nIf you select IE4 motor\n");
         x=((kilowat(num2)/motortable(num1,num2))-(kilowat(num2)/motortable(4,num2)));
-        printf("Price of Motor=%0.1f\n",pricelist(4,num2));
+        printf("Price of Motor=  %0.1f\n",pricelist(4,num2));
         saving=x*workhrs*workdays*tarrif;
         printf("Saving per year is %0.2f\t",saving);
         extrainvt=pricelist(4,num2)-pricelist(num1,num2);
         printf("Extra investment= %0.2f\t",extrainvt);
         payback=(12*extrainvt)/saving;
-        printf("Payback period is %0.1f months",payback);
+        printf("Payback period is %0.1f months\t",payback);
+        printf("\n");
     
       
  }
