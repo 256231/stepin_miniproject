@@ -24,7 +24,7 @@ void perform_motor()
     printf("Select the Kw rating of motor in use and press the no. accordingly\n");
     printf("1-3.7Kw 2- 7Kw 3 -11Kw 4- 15Kw 5- 30Kw 6- 45Kw 7-55Kw\t");
     scanf("%d",&option1);
-
+     
       motorselection(option,option1);
 
       printf("\n On the basis of Finance availability Customer will decide from above option\n");
@@ -35,7 +35,8 @@ void perform_motor()
 
 void motorselection(int num1,int num2)
 {
-    
+   
+ 
     float x,saving;
     float workhrs,workdays,tarrif;
     float extrainvt;
@@ -82,8 +83,9 @@ void motorselection(int num1,int num2)
         printf("Extra investment= %0.2f\t",extrainvt);
         payback=(12*extrainvt)/saving;
         printf("Payback period is %0.1f months",payback);
-    }
+    
       
+ }
 }
 
 float motortable(int op,int op1)

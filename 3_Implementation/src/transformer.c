@@ -1,6 +1,8 @@
 #include<stdio.h>
-#include<math.h>
+#include"math.h"
 #include"electrical.h"
+#include"unity.h"
+#include"unity_internals.h"
 
 float pg0,pg1;
 
@@ -30,7 +32,7 @@ float pg0,pg1;
            float pf=(p0/(v0*i0));
            if(pf>=1){
             printf("The entered values are wrong check again\n");
-           
+
             goto back0;
            }
            float sin;
@@ -55,7 +57,7 @@ float pg0,pg1;
            if(v1>=v0||i1<=i0)
            {
                printf("Entered values are wrong pls check and enter again\n");
-               
+              
                goto back1;
            }
 
@@ -123,7 +125,8 @@ float pg0,pg1;
 
            }
            
-
+          
+ 
 
 
 

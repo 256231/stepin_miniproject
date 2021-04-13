@@ -16,8 +16,6 @@ float pricelist(int opt1,int opt2);
 void motorselection(int num1,int num2);
 int motor_tests(int input1 ,int input2);
 int transformer_tests(int vol1, int cur1, int pow1, int vol2, int cur2);
-
-
 struct appliances{
 
 char name[100];
@@ -25,6 +23,7 @@ float watt;
 float hours;
 
 };
+
 void perform_transformer();
 void perform_motor();
 void perform_bill();
