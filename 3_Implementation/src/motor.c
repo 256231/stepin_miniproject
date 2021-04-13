@@ -1,28 +1,43 @@
+/**
+ * @file motor.c
+ * @author Himanshu
+ * @brief 
+ * @version 0.1
+ * @date 2021-04-13
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include<stdio.h>
 #include<math.h>
 #include"electrical.h"
 
+/**
+ * @brief To find the cost effectiveness of energy efficient motor
+ * 
+ */
 void perform_motor()
 {
 
      int option,option1;
 
-    printf(" ASSESSING COST EFFECTIVENESS OF ENERGY EFFICIENT\n");
-    printf("What type of motor currntly in use\n");
+    printf("######## ASSESSING COST EFFECTIVENESS OF ENERGY EFFICIENT MOTOR ##############\n");
+    printf("What type of motor currntly in use and need to replace\n");
     printf("1.IE1\n 2.IE2 3.IE3 4.IE4\n Enter the option\t");
     scanf("%d",&option);
     
     if(option==4)
     {
-        printf("Your motor is of high efficiency standatrd no change needed \n");
+        printf("Your motor is of high efficiency standatrd and if not working change with same IE4 type \n");
        
     }
     else
     {
 
 
-    printf("Select the Kw rating of motor in use and press the no. accordingly\n");
-    printf("1-3.7Kw 2- 7Kw 3 -11Kw 4- 15Kw 5- 30Kw 6- 45Kw 7-55Kw\t");
+    printf(" Select the Kw rating of motor in use and press the no. accordingly\n");
+    printf(" 1-3.7Kw \n 2- 7Kw\n 3 -11Kw\n 4- 15Kw\n 5- 30Kw \n 6- 45Kw\n 7-55Kw\n");
     scanf("%d",&option1);
      
       motorselection(option,option1);
@@ -32,7 +47,12 @@ void perform_motor()
 
     }
 }
-
+/**
+ * @brief Function selects the motor based on option entered
+ * 
+ * @param num1 
+ * @param num2 
+ */
 void motorselection(int num1,int num2)
 {
    
@@ -88,6 +108,13 @@ void motorselection(int num1,int num2)
  }
 }
 
+/**
+ * @brief Function contains the Efficiency of all the motor given above
+ * 
+ * @param op 
+ * @param op1 
+ * @return float 
+ */
 float motortable(int op,int op1)
 {
     float eff;
@@ -146,6 +173,12 @@ return eff/100;
 
 }
 
+/**
+ * @brief Function contains the kilowatt of all the motors
+ * 
+ * @param opt 
+ * @return float 
+ */
 float kilowat(int opt)
 {
 
@@ -163,6 +196,14 @@ float kilowat(int opt)
     return kw1;
 
 }
+
+/**
+ * @brief Functions contains the standard price list of all type of motor for given range
+ * 
+ * @param opt1 
+ * @param opt2 
+ * @return float 
+ */
 float pricelist(int opt1,int opt2)
 {
     float price;
@@ -221,6 +262,14 @@ return price;
 
 
 }
+
+/**
+ * @brief Function for test cases to check whether input given is correct
+ * 
+ * @param input1 
+ * @param input2 
+ * @return int 
+ */
 
 int motor_tests(int input1,int input2)
 {
