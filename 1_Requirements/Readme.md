@@ -21,11 +21,13 @@ C programming can support the calculations at the core of their analyses. Howeve
 
 Cost can be decided by the deployment team for this project and can give feedback to add aditional features
 Current Features
-1.Calculate the Efficiency of the Tranformer at any load 
-2.Accessing the cost effectiveness of motor and give details on extra investment to improve the production and save more on efficient motor
+1.Calculate the Efficiency of the Tranformer at any load \
+2.Accessing the cost effectiveness of motor and give details on extra investment to improve the production and save more on efficient motor\
 3.Finding approximate monthly bill of any house by giving average appliance working hours.
 ## Defining Our System
-    -- TBD
+* In this application user can choose which one to perform .Three option will be placed in front of him.If he chooses to perform OC & SC test to find equivalent parameters he can input the parameters.
+* If he choose to find the cost effectiveness of energy efficient motor he can state what is the current motor with him and the application will give option from him to choose motor of higher efficieny with saving and payback period.
+* Third one is simple monthly house electricity bill calculator.It will get all the appliances used and their  wattage with average hours it is used to calculate the bill.
 ## SWOT ANALYSIS
 ![SWOT-Sample](Link to Pic)
 
