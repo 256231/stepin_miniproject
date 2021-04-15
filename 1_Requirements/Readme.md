@@ -29,36 +29,45 @@ Current Features
 * If he choose to find the cost effectiveness of energy efficient motor he can state what is the current motor with him and the application will give option from him to choose motor of higher efficieny with saving and payback period.
 * Third one is simple monthly house electricity bill calculator.It will get all the appliances used and their  wattage with average hours it is used to calculate the bill.
 ## SWOT ANALYSIS
-![SWOT-Sample](Link to Pic)
+![SWOT-Sample](https://github.com/Himanshu257170/stepin_miniproject/blob/main/6_ImagesAndVideos/swot.png)
 
 # 4W&#39;s and 1&#39;H
 
 ## Who:
 
-**TBD**
+This is Structured application for electrical background,where we can access the requirement using simple application
 
 ## What:
 
-**TBD**
+This will easly Calculate all the parameter and give results with no time .Earlier it was time consuming work to do this
 
 ## When:
 
-**TBD**
+During any failure or needed replacement this can do cost effectiveness and will display the result.We all have bugdet for our expenses so can predict our monthly electricity bill to save for it.
 
 ## Where:
 
-**TBD**
+In college ,industries can be used by students and engineers 
 
 ## How:
 
-**TBD**
+This application takes the input and do analysis with the parameter to find the best output needed
 
 # Detail requirements
 ## High Level Requirements:
---- TBD in Tabular Format 
--- ID | Description | Status (Implemented/Future)
+|**ID**|**DESCRIPTION**|**CATEGORY**|**STATUS**|
+| :- | :- | :- | :- |
+|**HLR01**|**First get the option what application user want to perform**|**Technical**|**Implemented**|
+|**HLR02**|**If first option selected get the tranformer parameters**|**Technical**|**Implemented**|
+|**HLR03**|**If second option selected get the current motor in use and need replacement**|**Technical**|**Implemented**|
+|**HLR04**|**If third option selected perform electricity bill calcuation**|**Technical**|**Implemented**|
 
 
-##  Low level Requirements:
---- TBD in Tabular Format 
--- ID | Description | Status (Implemented/Future)
+## Low level Requirements:
+
+|**ID**|**DESCRIPTION**|**CATEGORY**|**HLR ID**|**STATUS**|
+| :- | :- | :- | :- | :- |
+|**LLR01**|**Check if power factor is less than one else given data is wrong**  |**Technical**|**HLR 02**|**Implemented**|
+|**LLR02**|**Calculate the efficiency of transformer from data received** |**Technical**|**HLR 02**|**Implemented**|
+|**LLR03**|**Calculate the saving and payback period for cost effective motor**|**Technical**|**HLR 03**|**Implemented**|
+|**LLR04**|**Get the average hours and wattage of appliances used**|**Technical**|**HLR 04**|**Implemented**|
